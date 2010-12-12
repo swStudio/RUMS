@@ -1,9 +1,9 @@
 import java.awt.Image;
-
+import java.sql.*;
 
 public class User extends Student{
 
-	private String nickName;
+	private String nickame;
 	private Image head;
 	private String mooto;
 	private String hobby;
@@ -12,6 +12,7 @@ public class User extends Student{
 	private String address;
 	private String telephone;
 	private String password;
+	public Object dos;
 	
 	public User() {
 		// TODO Auto-generated constructor stub

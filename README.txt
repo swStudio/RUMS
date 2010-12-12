@@ -6,3 +6,5 @@ Below are some commands that we use ofen:
 4. Push the project to the github: git push origin master.
 
 More importantly, remember to check your WiKi and finish your assigned task in time. Thanks. shenshaowei.
+
+A new version of Coding Style Guidelines, with adding something in detailed.
