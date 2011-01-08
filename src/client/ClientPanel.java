@@ -146,6 +146,8 @@ public class ClientPanel extends JFrame implements ActionListener,MouseListener{
 		panel9.add(friendsList);
 		this.add(panel9);
 		
+		this.setLocation(400, 200);
+		
 		
 	}
 	

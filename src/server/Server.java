@@ -60,6 +60,7 @@ public class Server extends JFrame implements ActionListener,ItemListener,Runnab
 		this.getContentPane().add(p2,"South");
 		this.getContentPane().add(messageScrollPane,"Center");
 		this.setSize(320,380);
+		this.setLocation(500, 250);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}
