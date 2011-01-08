@@ -215,7 +215,7 @@ public class ModifyInformation extends JFrame{
 		container.add(submit);
 		container.add(cancel);
 	}
-	
+
 	private void addListenerToButton()
 	{
 	    submit.addActionListener(new Listen_submit());
@@ -252,7 +252,7 @@ public class ModifyInformation extends JFrame{
 
 		private void modifyGroupInformation() throws SQLException {
 			String drivername = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-			String url = "jdbc:sqlserver://localhost:1433; DatabaseName=system_of_friends";
+			String url = "jdbc:sqlserver://localhost:1433; DatabaseName=FriendsPanel";
 			String username = "sa";
 			String userpass = "";
 			String sqlToDeleteGroup = "delete from activeIn "+
@@ -288,7 +288,7 @@ public class ModifyInformation extends JFrame{
 			modifiedMood = userMood.getText();
 			modifiedPassword = comfirmPassword.getText();	
 			String drivername = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-			String url = "jdbc:sqlserver://localhost:1433; DatabaseName=system_of_friends";
+			String url = "jdbc:sqlserver://localhost:1433; DatabaseName=FriendsPanel";
 			String username = "sa";
 			String userpass = "";
 			String sqlToModifyMood = "update users set mood = '"+modifiedMood+"'where UID ='"+presentUserName+"'";
@@ -393,7 +393,7 @@ public class ModifyInformation extends JFrame{
 		int indexOfActivedgroups = 0;
 		int indexOfAllgroups = 0; 
 		String drivername = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-		String url = "jdbc:sqlserver://localhost:1433; DatabaseName=system_of_friends";
+		String url = "jdbc:sqlserver://localhost:1433; DatabaseName=FriendsPanel";
 		String username = "sa";
 		String userpass = "";
 		String sqlToFindActivedGroups = "select group_name from users,activeIn,groups where groups.GID = activeIn.GID and users.UID ="+"'"+presentUserName+"'";

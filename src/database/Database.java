@@ -56,7 +56,7 @@ public static void main(String args[]) throws SQLException
 	String url = "jdbc:sqlserver://localhost:1433; DatabaseName=FriendsPanel";
 	String username = "sa";
 	String userpass = "";
-	String sql = "select number from users where number='08386243'";
+	String sql = "select number from Users where userId='08380000'";
 	ResultSet resultset;
 	Database database = new Database();
 	resultset = database.creatResultSet(drivername,url,username,userpass,sql);

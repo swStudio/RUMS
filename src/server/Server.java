@@ -24,8 +24,8 @@ public class Server extends JFrame implements ActionListener,ItemListener,Runnab
 	JButton stopButton = new JButton("停止");
 	JButton exitButton = new JButton("退出");
 	JButton messageButton = new JButton("发送消息");
-	JTextField serMessage = new JTextField("",25);
-	Vector userName = new Vector();
+	JTextField serMessage = new JTextField("",18);
+	Vector userName = new Vector<String>(100);
 	JComboBox userList = new JComboBox(userName);
 	JPanel p1 = new JPanel();
 	JPanel p2 = new JPanel();
@@ -39,7 +39,7 @@ public class Server extends JFrame implements ActionListener,ItemListener,Runnab
 	
 	public Server(){
 		
-		this.setTitle("网络聊天服务器");
+		this.setTitle("交友平台服务器");
 		p1.setLayout(new GridLayout(1,5,5,5));
 		p1.add(runButton);
 		p1.add(stopButton);
@@ -50,6 +50,7 @@ public class Server extends JFrame implements ActionListener,ItemListener,Runnab
 		exitButton.addActionListener(this);
 		messageButton.addActionListener(this);
 		userList.addItem("好友列表");
+		userList.setModel(new DefaultComboBoxModel(new String[] {"08386216","08386205","08386242","08386224"}));
 		userList.addItemListener(this);
 		p2.add(serMessage);
 		p2.add(messageButton);
@@ -58,7 +59,7 @@ public class Server extends JFrame implements ActionListener,ItemListener,Runnab
 		this.getContentPane().add(p1,"North");
 		this.getContentPane().add(p2,"South");
 		this.getContentPane().add(messageScrollPane,"Center");
-		this.setSize(400,300);
+		this.setSize(320,380);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}
@@ -70,7 +71,7 @@ public class Server extends JFrame implements ActionListener,ItemListener,Runnab
 			chartThread = new Thread(this);
 			chartThread.start();
 			runButton.setVisible(false);
-			message.append("服务器启动"+"\n");
+			message.append("服务器启动……"+"\n");
 			 
 		}else if (e.getSource() == stopButton)
 		{
@@ -94,11 +95,11 @@ public class Server extends JFrame implements ActionListener,ItemListener,Runnab
 				if(currentUserName=="所有人")
 				{
 					int count=userList.getItemCount();
-					for(int i=1;i<count;i++)
+					for(int i = 1;i < count; i++)
 					{
-						//User user=(User)users.get(userList.getItemAt(i).toString());
+						User user=(User)users.get(userList.getItemAt(i).toString());
 						//user.dos.println(serMessage.getText());
-						//message.append("发送："+serMessage.getText()+"\n");
+						message.append("发送："+serMessage.getText()+"\n");
 					}
 				}
 				else
@@ -107,10 +108,7 @@ public class Server extends JFrame implements ActionListener,ItemListener,Runnab
 					message.append("发送："+serMessage.getText()+"\n");
 				}								
 			}
-			
 		}
-			
-			
 	}
 	public void itemStateChanged(ItemEvent event)
 	{
@@ -217,6 +215,7 @@ public class Server extends JFrame implements ActionListener,ItemListener,Runnab
         
 		return ok;
 	}
+	
 	public void sendMessage(String message)
 	{
 		User user=(User)users.get(currentUserName);
@@ -224,29 +223,28 @@ public class Server extends JFrame implements ActionListener,ItemListener,Runnab
 	}
 	
 
-class ServerThread extends Thread{
-
-User client;
-String aline;
-public ServerThread(){
-}
-	public ServerThread(User client)
-	{
-				this.client=client;
-	}
-	public void setUser(User client)
-	{
-
-	}
-	public void run(){
-		try{
-		}catch(Exception eeee){	}
-	}
-}
-public static void main(String args[])
-	{
-		Server my=new Server();
-	}
-
+	class ServerThread extends Thread{
+	
+		User client;
+		String aline;
+		public ServerThread(){
+		}
+			public ServerThread(User client)
+			{
+						this.client=client;
+			}
+			public void setUser(User client)
+			{
+		
+			}
+			public void run(){
+				try{
+				}catch(Exception eeee){	}
+			}
+		}
+	public static void main(String args[])
+		{
+			Server chat_server = new Server();
+		}
 
 }

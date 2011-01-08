@@ -1,3 +1,5 @@
+package client;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,6 +11,7 @@ import javax.swing.*;
 import javax.swing.border.TitledBorder;
 
 import users.ModifyInformation;
+import users.User;
 
 public class ClientPanel extends JFrame implements ActionListener,MouseListener{
 	
@@ -120,6 +123,7 @@ public class ClientPanel extends JFrame implements ActionListener,MouseListener{
 		panel4.add(label5);
 		panel4.add(label1);
 		panel4.add(modified);
+		modified.addActionListener(this);
 		panel4.add(settings);
 		this.add(panel4);
 		
@@ -144,6 +148,12 @@ public class ClientPanel extends JFrame implements ActionListener,MouseListener{
 		
 		
 	}
+	
+	public User FindUsers(int i)
+	{
+		return null;
+	}
+	
 	public void AddHead()
 	{
 		
@@ -163,15 +173,16 @@ public class ClientPanel extends JFrame implements ActionListener,MouseListener{
 	}
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		if (e.getSource() == modified)
+		/*if (e.getSource() == modified)
 		{
 			ModifyInformation modifiedinfo = new ModifyInformation();
+	
 		}
 		else if (e.getSource() == settings)
 		{
 			
 		}
-		
+		*/
 	}
 	@Override
 	public void mousePressed(MouseEvent e) {
@@ -191,8 +202,12 @@ public class ClientPanel extends JFrame implements ActionListener,MouseListener{
 		this.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 		
 	}
-	@Override
+	
 	public void actionPerformed(ActionEvent e) {
-		
+		if (e.getSource() == modified)
+		{
+			new ModifyInformation();
+	
+		}
 	}
 }
