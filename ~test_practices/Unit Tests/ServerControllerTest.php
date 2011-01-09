@@ -20,11 +20,10 @@ class ServerControllerTest extends PHPUnit_Framework_TestCase {
 	protected function setUp() {
 		parent::setUp ();
 		
-		// TODO Auto-generated ServerControllerTest::setUp()
 		$this->ServerController = new ServerController(1);
-		require_once("lib/MySQL.php");
+		require_once("lib/SQL.php");
 		$con=connect();
-		$db=mysql_select_db("user_db");
+		$db=sql_select_db("User_db");
 		$this->ServerController->_link=$con;
 	}
 	
@@ -32,8 +31,6 @@ class ServerControllerTest extends PHPUnit_Framework_TestCase {
 	 * Cleans up the environment after running a test.
 	 */
 	protected function tearDown() {
-		// TODO Auto-generated ServerControllerTest::tearDown()
-		
 
 		$this->ServerController = null;
 		
@@ -44,7 +41,7 @@ class ServerControllerTest extends PHPUnit_Framework_TestCase {
 	 * Constructs the test case.
 	 */
 	public function __construct() {
-		// TODO Auto-generated constructor
+	
 	}
 	
 	/**
@@ -63,15 +60,11 @@ class ServerControllerTest extends PHPUnit_Framework_TestCase {
 	 * Tests ServerController->ServerController()
 	 */
 	public function testServerController() {
-		// TODO Auto-generated ServerControllerTest->testServerController()
-		//$this->markTestIncomplete ( "ServerController test not implemented" );
-		//$this->ServerController->ServerController(1);
+		
 		$this->assertTrue($this->ServerController->getUid()==1);
 	}
 	public function testChangeServerController() {
-		// TODO Auto-generated ServerControllerTest->testServerController()
-		//$this->markTestIncomplete ( "ServerController test not implemented" );
-		//$this->ServerController->ServerController(1);
+		
 		$this->ServerController->ServerController(2);
 		$this->assertTrue($this->ServerController->getUid()==2);
 	}
@@ -79,29 +72,25 @@ class ServerControllerTest extends PHPUnit_Framework_TestCase {
 	 * Tests ServerController->isPost()
 	 */
 	public function testIsPost() {
-		// TODO Auto-generated ServerControllerTest->testIsPost()
-		//$this->markTestIncomplete ( "isPost test not implemented" );
-		$_POST['uid']=1;
-		$this->assertTrue($this->ServerController->isPost('uid'));
+		
+		$_POST['userId']=1;
+		$this->assertTrue($this->ServerController->isPost('userId'));
 	}
 	public function testIsPost2() {
-		// TODO Auto-generated ServerControllerTest->testIsPost()
-		//$this->markTestIncomplete ( "isPost test not implemented" );
+
 		$this->assertTrue(!$this->ServerController->isPost('Server'));
 	}
 	/**
 	 * Tests ServerController->addNewServer()
 	 */
 	public function testAddNewServerSuccessful() {
-		// TODO Auto-generated ServerControllerTest->testAddNewServer()
-		//$this->markTestIncomplete ( "addNewServer test not implemented" );
-		$this->ServerController->addNewServer("sunday");
+
+		$this->ServerController->addNewServer("friendsPanel");
 		$condition=$this->ServerController->_message=="A new Server is created!";
 		$this->assertTrue($condition);
 	}
 	public function testAddNewServerNotSuccessful() {
-		// TODO Auto-generated ServerControllerTest->testAddNewServer()
-		//$this->markTestIncomplete ( "addNewServer test not implemented" );
+
 		$this->ServerController->addNewServer("");
 		$condition=$this->ServerController->_message=="Failed to create a new Server";
 		$this->assertTrue($condition);
@@ -110,8 +99,6 @@ class ServerControllerTest extends PHPUnit_Framework_TestCase {
 	 * Tests ServerController->getnewServerHTML()
 	 */
 	public function testGetnewServerHTML() {
-		// TODO Auto-generated ServerControllerTest->testGetnewServerHTML()
-		//$this->markTestIncomplete ( "getnewServerHTML test not implemented" );
 		
 		$str=$this->ServerController->getnewServerHTML();
 		$condition=$str!="";
@@ -122,13 +109,12 @@ class ServerControllerTest extends PHPUnit_Framework_TestCase {
 	 * Tests ServerController->getMessage()
 	 */
 	public function testGetMessage() {
-		// TODO Auto-generated ServerControllerTest->testGetMessage()
-		//$this->markTestIncomplete ( "getMessage test not implemented" );
+
 		$this->ServerController->setMessage("ok!");
 		$this->ServerController->setUrl("index.php");
 		$this->ServerController->getMessage();
 		$str="<head>
-						<title>My Pictrue</title>
+						<title>Server</title>
 						<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />
 						<link rel=\"stylesheet\" type=\"text/css\" href=\"css/forget.css\" />
 						<script type\"text/javascript\">
