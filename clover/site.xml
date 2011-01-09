@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+	<feature id="com.cenqua.clover"
+			 url="features/com.cenqua.clover_3.0.2.v20100413110000.jar"
+			 version="3.0.2.v20100413110000"
+			 label="Clover 2 (3.0.2.v20100413110000) for Eclipse 3.2 - 3.5 and RAD 7/7.5">
+        <category name="clover3.0.2"/>
+	</feature>
+
+	<feature id="com.cenqua.clover.ant"
+			 url="features/com.cenqua.clover.ant_3.0.2.v20100413110000.jar"
+			 version="3.0.2.v20100413110000"
+			 label="Clover 2 Ant Support (3.0.2.v20100413110000) for Eclipse 3.2 - 3.5 and RAD 7/7.5">
+        <category name="clover3.0.2"/>
+	</feature>
+
+    <category-def name="clover3.0.2" label="Clover 3.0.2 (Eclipse 3.2 - 3.5 and RAD 7/7.5)"/>
+</site>
