@@ -8,3 +8,5 @@ Below are some commands that we use ofen:
 More importantly, remember to check your WiKi and finish your assigned task in time. Thanks. shenshaowei.
 
 A new version of Coding Style Guidelines, with adding something in detailed.
+
+2010-01-09: We has not accomplished our tasks in step 6. However, we will try our best. And we will resubmit our product after the exam.
